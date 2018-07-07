@@ -1,7 +1,5 @@
 # Daily-Tips
 ------
-To-luyifan-Start
-1.Test lalala!!
-2.Test lololo!!
-3.Test lululu!!
-To-luyifan-End
+Start:1.Test lalala!!:End
+Start:2.Test lololo!!:End
+Start:3.Test lululu!!:End
