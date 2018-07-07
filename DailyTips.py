@@ -23,7 +23,8 @@ class Email(object):
     def __init__(self):
         self.content = ''
         self.a_url = 'https://github.com/XwLu/Daily-Tips'
-        self.time_point = '23:20:00'
+        self.time_point = '23:28:00'
+        self.to_addr = '416779984@qq.com'
 
 
     def loadWeb(self):
@@ -39,7 +40,7 @@ class Email(object):
     def sendEmail(self):
         from_addr = '1024507980@qq.com'
         password = 'lyyzdefycyhlbdic'
-        to_addr = '416779984@qq.com'
+        to_addr = self.to_addr
         smtp_server = 'smtp.qq.com'
         msg = MIMEText(self.content, 'plain', 'gb2312')
         msg['From'] = _format_addr(u'虎虎 <%s>' % from_addr)
