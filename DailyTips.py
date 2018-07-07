@@ -23,13 +23,13 @@ class Email(object):
     def __init__(self):
         self.content = ''
         self.a_url = 'https://github.com/XwLu/Daily-Tips'
-        self.time_point = '23:28:00'
+        self.time_point = '08:30:00'
         self.to_addr = '416779984@qq.com'
 
 
     def loadWeb(self):
         html_1 = requests.get(self.a_url)
-        html_1.encoding = 'gb2312'
+        html_1.encoding = 'utf-8'
         list1 = re.findall('<p>Start:(.*?):End</p>', html_1.text)
         self.content = ''
         for i in range(len(list1)):
@@ -42,10 +42,10 @@ class Email(object):
         password = 'lyyzdefycyhlbdic'
         to_addr = self.to_addr
         smtp_server = 'smtp.qq.com'
-        msg = MIMEText(self.content, 'plain', 'gb2312')
+        msg = MIMEText(self.content, 'plain', 'utf-8')
         msg['From'] = _format_addr(u'虎虎 <%s>' % from_addr)
         msg['To'] = _format_addr(u'陆一帆 <%s>' % to_addr)
-        msg['Subject'] = Header(u'来自虎虎的每日计划提示', 'gb2312').encode()
+        msg['Subject'] = Header(u'来自虎虎的每日计划提示', 'utf-8').encode()
         server = smtplib.SMTP_SSL(smtp_server, 465)
         server.set_debuglevel(1)
         server.login(from_addr, password)
@@ -55,7 +55,7 @@ class Email(object):
 
 if __name__ == "__main__":
     email = Email()
-    print("The email will be sent at" + email.time_point)
+    print("The email will be sent at " + email.time_point)
     print('Program is Running...')
 
     while True:
